@@ -1,0 +1,12 @@
+
+.heading {
+  display: flex;
+  padding: 1.5rem 3rem;
+  justify-content: space-between;
+  border-bottom: 1px solid gray; 
+}
+
+.btnSwitchTheme {
+    border: none; 
+    background: inherit;
+}

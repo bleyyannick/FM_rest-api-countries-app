@@ -1,0 +1,31 @@
+
+
+.card {
+  width: 264px;
+  height: 336px;
+  border-radius: 5px;
+  overflow:hidden;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.card > img {
+    width: 100%;
+    object-fit: cover;
+    height: 45%;
+}
+
+.card > div {
+    padding: 1.3rem 1.2rem 2.5rem 1.2rem;
+}
+
+.card > div h3 {
+    padding-bottom: 1rem;
+}
+
+.card > div ul {
+    list-style-type: none;
+}
+
+.card > div ul li {
+    padding-bottom: .1rem;
+}

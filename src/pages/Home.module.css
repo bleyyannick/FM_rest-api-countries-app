@@ -1,4 +1,12 @@
 
+
+main {
+  background:  hsl(0, 0%, 98%); 
+  padding: 1.5rem 3rem;
+}
 .countriesContainer {
-    background: indianred; 
+    display: grid;
+    grid-template-columns: 1fr 1Fr 1fr 1Fr;
+    gap: 2rem;
+    margin-top: 2.5rem;
 }

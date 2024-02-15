@@ -3,7 +3,8 @@
   display: flex;
   padding: 1.5rem 3rem;
   justify-content: space-between;
-  border-bottom: 1px solid gray; 
+  border: transparent; 
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
 }
 
 .btnSwitchTheme {

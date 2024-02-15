@@ -25,7 +25,7 @@ function Home() {
     <>
       <Header />
       <main>
-        <section>
+        <section className={styles.search}>
           <SearchCountry />
           <FilterCountry />
         </section>

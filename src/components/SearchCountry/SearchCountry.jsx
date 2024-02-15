@@ -1,4 +1,4 @@
-
+import styles from './SearchCountry.module.css'; 
 
 function SearchCountry() {
   return (

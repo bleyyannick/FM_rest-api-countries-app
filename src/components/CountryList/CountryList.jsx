@@ -6,9 +6,9 @@ function CountryList({countries}) {
 
   const countriesCard = countries.map((country)=> {
     return (
-      <div className={styles.card} key={country.name.common}>
-        <img src={country.flags.png} alt={country.flags.alt} />
-        
+    <a key={country.name.common} className={styles.cardFlagLink} href={`/${country.name.common}`}>
+      <div className={styles.card} >
+          <img src={country.flags.png} alt={country.flags.alt} />
         <div>
         <h3>{country.name.common}</h3>
           <ul>
@@ -18,6 +18,8 @@ function CountryList({countries}) {
           </ul>
         </div>
       </div>
+      </a>
+
     )
   })
   return (

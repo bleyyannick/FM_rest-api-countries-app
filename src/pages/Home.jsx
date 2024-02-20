@@ -9,7 +9,7 @@ function Home() {
     useEffect(() => {
      const fetchAllCountries = async () => {
          try {
-            const response = await fetch('https://restcountries.com/v3.1/all', { method: 'GET'})
+            const response = await fetch('https://restcountries.com/v3.1/all')
             if(!response.ok) throw new Error('Something went wrong with the request')
             const data = await response.json(); 
             setCountries(data); 
@@ -18,15 +18,26 @@ function Home() {
             }
          };
           fetchAllCountries(); 
-    }, [])
-    const [countries, setCountries] = useState([]); 
+    }, []); 
+
+
+    const [countries, setCountries] = useState([]);
+     const [filteredCountries, setFilteredCountries] = useState(countries);
+
+
+   const handleSearchCountry = (inputValue)  => {
+      setCountries(prevCountries => {
+       return  [...prevCountries].filter(newCountry => 
+          newCountry.name.common.toLowerCase().includes(inputValue.toLowerCase()))
+         });         
+   }
 
   return (
     <>
       <Header />
       <main>
         <section className={styles.search}>
-          <SearchCountry />
+          <SearchCountry onSearch={handleSearchCountry} />
           <FilterCountry />
         </section>
         <section className={styles.countriesContainer}>

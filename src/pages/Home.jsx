@@ -6,6 +6,9 @@ import SearchCountry from "../components/SearchCountry/SearchCountry";
 import styles from './Home.module.css'; 
 
 function Home() {
+  const [countries, setCountries] = useState([]);
+  const [filteredCountries, setFilteredCountries] = useState([]);
+
     useEffect(() => {
      const fetchAllCountries = async () => {
          try {
@@ -13,6 +16,7 @@ function Home() {
             if(!response.ok) throw new Error('Something went wrong with the request')
             const data = await response.json(); 
             setCountries(data); 
+            setFilteredCountries(data)
             } catch(err) {
                 console.log(err)
             }
@@ -20,16 +24,9 @@ function Home() {
           fetchAllCountries(); 
     }, []); 
 
-
-    const [countries, setCountries] = useState([]);
-     const [filteredCountries, setFilteredCountries] = useState(countries);
-
-
    const handleSearchCountry = (inputValue)  => {
-      setCountries(prevCountries => {
-       return  [...prevCountries].filter(newCountry => 
-          newCountry.name.common.toLowerCase().includes(inputValue.toLowerCase()))
-         });         
+      setFilteredCountries(() => [...countries].filter(newCountry => 
+          newCountry.name.common.toLowerCase().includes(inputValue.toLowerCase()))); 
    }
 
   return (
@@ -41,11 +38,11 @@ function Home() {
           <FilterCountry />
         </section>
         <section className={styles.countriesContainer}>
-          <CountryList countries={countries} />
+          <CountryList countries={filteredCountries} />
         </section>
       </main>
     </>
   )
 }
 
-export default Home
+export default Home; 

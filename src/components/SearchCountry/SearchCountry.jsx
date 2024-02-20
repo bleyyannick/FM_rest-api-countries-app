@@ -1,22 +1,24 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
+// eslint-disable-next-line no-unused-vars
 import styles from './SearchCountry.module.css'; 
 
-function SearchCountry({onSearch}) {
-  const [searchedCountry, setSearchedCountry] = useState(''); 
-  const handleSearchInput = (userInput) => {
-     setSearchedCountry(userInput); 
-     onSearch(searchedCountry); 
-  }
+function SearchCountry({ onFilter}) {
+  const [searchedCountry, setSearchedCountry] = useState('');
+  const handleSearchCountry = (e) => {
+     setSearchedCountry(e.target.value);
+     onFilter(e.target.value);
+   }; 
 
   return (
      <form>
          <input 
-         type='text'
+          type='text'
           placeholder="search for a country"
           value={searchedCountry}
-          onChange={(e) => handleSearchInput(e.target.value)} />
+          onChange={(event) => handleSearchCountry(event)} />
      </form>
+
   )
 }
 

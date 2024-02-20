@@ -7,7 +7,7 @@ import styles from './Home.module.css';
 
 function Home() {
   const [countries, setCountries] = useState([]);
-  const [filteredCountries, setFilteredCountries] = useState([]);
+  const [text, setText] = useState('');
 
     useEffect(() => {
      const fetchAllCountries = async () => {
@@ -16,25 +16,22 @@ function Home() {
             if(!response.ok) throw new Error('Something went wrong with the request')
             const data = await response.json(); 
             setCountries(data); 
-            setFilteredCountries(data)
             } catch(err) {
                 console.log(err)
             }
          };
           fetchAllCountries(); 
     }, []); 
-
-   const handleSearchCountry = (inputValue)  => {
-      setFilteredCountries(() => [...countries].filter(newCountry => 
-          newCountry.name.common.toLowerCase().includes(inputValue.toLowerCase()))); 
-   }
-
+    
+  const handleFilterCountries = userInputValue => setText(userInputValue); 
+  const filteredCountries =  countries.filter(country => country.name.common.toLowerCase().includes(text.toLowerCase())); 
+  
   return (
     <>
       <Header />
       <main>
         <section className={styles.search}>
-          <SearchCountry onSearch={handleSearchCountry} />
+          <SearchCountry onFilter={handleFilterCountries} />
           <FilterCountry />
         </section>
         <section className={styles.countriesContainer}>

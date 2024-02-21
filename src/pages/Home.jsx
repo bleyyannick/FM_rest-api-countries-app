@@ -7,7 +7,7 @@ import styles from './Home.module.css';
 
 function Home() {
   const [countries, setCountries] = useState([]);
-  const [text, setText] = useState('');
+  const [filter, setFilter] = useState('');
 
     useEffect(() => {
      const fetchAllCountries = async () => {
@@ -23,8 +23,10 @@ function Home() {
           fetchAllCountries(); 
     }, []); 
     
-  const handleFilterCountries = userInputValue => setText(userInputValue); 
-  const filteredCountries =  countries.filter(country => country.name.common.toLowerCase().includes(text.toLowerCase())); 
+  const handleFilterCountries = userInputValue => setFilter(userInputValue); 
+  const filteredCountries =  countries.filter(country => 
+    country.name.common.toLowerCase().includes(filter.toLowerCase())
+    ); 
   
   return (
     <>

@@ -1,14 +1,15 @@
 /* eslint-disable react/prop-types */
 
 import styles from './CountryList.module.css';
+import { Link } from 'react-router-dom';
 
 function CountryList({countries}) {
 
   const countriesCard = countries.map((country)=> {
     return (
-    <a key={country.name.common} 
-       className={styles.cardFlagLink} 
-       href={`/${country.name.common}`}>
+    <Link to={`/${country.name.common}`} 
+         key={country.name.common} 
+         className={styles.cardFlagLink}>
       <div className={styles.card}>
         <img src={country.flags.png} alt={country.flags.alt} />
         <div>
@@ -19,8 +20,8 @@ function CountryList({countries}) {
             <li><b>Capital:</b><span>{country.capital}</span></li>
           </ul>
         </div>
-       </div>
-      </a>
+       </div> 
+      </Link>
 
     )
   })

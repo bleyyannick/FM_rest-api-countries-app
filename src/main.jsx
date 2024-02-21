@@ -6,12 +6,17 @@ import {
 } from "react-router-dom";
 import './index.css'
 import Home from './pages/Home.jsx';
+import CountryPage from './pages/CountryPage.jsx'; 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />
-  },
+  }, 
+  {
+    path: "/:name", 
+    element: <CountryPage />
+  }
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

@@ -7,7 +7,7 @@ function CountryList({countries}) {
 
   const countriesCard = countries.map((country)=> {
     return (
-    <Link to={`/${country.name.common}`} 
+    <Link to={`/name/${country.name.common.toLowerCase()}`} 
          key={country.name.common} 
          className={styles.cardFlagLink}>
       <div className={styles.card}>

@@ -8,7 +8,6 @@ import styles from './Home.module.css';
 function Home() {
   const [countries, setCountries] = useState([]);
   const [filter, setFilter] = useState('');
-
     useEffect(() => {
      const fetchAllCountries = async () => {
          try {
@@ -24,7 +23,7 @@ function Home() {
     }, []); 
     
   const handleFilterCountries = userInputValue => setFilter(userInputValue); 
-  const filteredCountries =  countries.filter(country => 
+  const filteredCountries =  [...countries].filter(country => 
     country.name.common.toLowerCase().includes(filter.toLowerCase())
     ); 
   

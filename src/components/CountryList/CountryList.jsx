@@ -11,7 +11,7 @@ function CountryList({countries}) {
          key={country.name.common} 
          className={styles.cardFlagLink}>
       <div className={styles.card}>
-        <img src={country.flags.png} alt={country.flags.alt} />
+        <img className={styles.cardFlag} src={country.flags.png} alt={country.flags.alt} />
         <div>
           <h3>{country.name.common}</h3>
           <ul>

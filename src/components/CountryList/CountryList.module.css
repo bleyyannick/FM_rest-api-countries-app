@@ -15,7 +15,7 @@ a {
   height: 100%;
 }
 
-.card > img {
+.card > .cardFlag {
     width: 100%;
     object-fit: cover;
     height: 45%; 

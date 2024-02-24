@@ -56,7 +56,7 @@ function CountryPage() {
             </ul>
           </div>
           <div>
-            <p>Border Countries: {country.borders.map(border => border.toLowerCase()).join(',')}</p>
+            <p>Border Countries: {country.borders?.map(border => border.toLowerCase()).join(',')}</p>
           </div>
        </div>
        )

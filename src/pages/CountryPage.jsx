@@ -27,6 +27,7 @@ function CountryPage() {
           return nativeNameValues.map(nativeName => nativeName.official).join(',')
         };
       const getCapitals = capitals => capitals.map(capital => capital)?.join(','); 
+      console.log(countryInfo)
   return (
    <>
    <Header />
@@ -37,25 +38,25 @@ function CountryPage() {
       )}
       </div>
       {countryInfo.map((country, key) => 
-       <div key={key}>
+       <div key={key} className={styles.countryDescription}>
           <div>
             <h2>{country.name.common}</h2>
           </div>
-          <div>
-            <ul>
+          <div className={styles.countryTextDetails}>
+            <ul className={styles.countryFirstList}>
               <li>Native Name: {getNativeName(country.name.nativeName)} </li>
               <li>Population:{country.population} </li>
               <li>Region: {country.region} </li>
               <li>Sub Region: {country.subregion}</li>
               <li>Capital: {getCapitals(country.capital)}</li>
             </ul>
-            <ul>
+            <ul className={styles.countrySecondList}> 
               <li>Top Level Domain: {country.tld[0]} </li>
               <li>Currencies:{(Object.values(country.currencies)[0].name)} </li>
               <li>Languages: {(Object.values(country.languages).map(languages => languages).join(','))} </li>
             </ul>
           </div>
-          <div>
+          <div className={styles.countryBorders}>
             <p>Border Countries: {country.borders?.map(border => border.toLowerCase()).join(',')}</p>
           </div>
        </div>

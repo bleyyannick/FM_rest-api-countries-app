@@ -1,14 +1,14 @@
 
 
-.countryDetails {
-    display: flex;
-    padding: 0 3rem;
-    justify-content: space-between;   
+.countryContainer {
+    display:flex; 
+    justify-content: space-between;
+    padding:0 3rem; 
 }
 
 .countryFlag {
-    width: 560px; 
-    height: 400px; 
+    width: 550px; 
+    height: 350px; 
     min-height: 230px; 
     min-width: 320px;
 }

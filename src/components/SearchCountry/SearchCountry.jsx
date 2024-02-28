@@ -14,7 +14,7 @@ function SearchCountry({ onSearch }) {
      <form>
          <input 
           type='text'
-          placeholder="search for a country"
+          placeholder="Search for a country..."
           value={inputSearch}
           onChange={e => handleInputSearch(e)} />
      </form>

@@ -4,8 +4,12 @@ import Country from '../Country/Country';
 import styles from './CountryList.module.css';
 import { Link } from 'react-router-dom';
 
-function CountryList({countries, region}) {
-  const countriesCard = countries.map((country)=> {
+function CountryList({countries, region , userInput}) {
+  
+  const filteredCountries =  countries.filter(country => 
+       country.name.common.toLowerCase().includes(userInput.toLowerCase()));
+
+  const countriesCard = filteredCountries.map((country)=> {
     if (country.region === region || region === "All") {
       return (
         <Link to={`/name/${country.name.common.toLowerCase()}`} 

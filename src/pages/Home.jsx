@@ -7,7 +7,8 @@ import styles from './Home.module.css';
 
 function Home() {
   const [countries, setCountries] = useState([]);
-  const [filter, setFilter] = useState('');
+  const [searchCountries, setSearchCountries] = useState('');
+  const [region, setRegion] = useState('All');
     useEffect(() => {
      const fetchAllCountries = async () => {
          try {
@@ -22,26 +23,21 @@ function Home() {
           fetchAllCountries(); 
     }, []); 
     
-  const handleFilterCountries = userInputValue => setFilter(userInputValue); 
-  const filteredCountries =  [...countries].filter(country => 
-    country.name.common.toLowerCase().includes(filter.toLowerCase())
-    );
-  const handleFilterByRegion = (value) => 
-    setCountries(
-     filteredCountries.filter(country => country.region === value)
-    ); 
-  
+  const handleSearchCountries = userInputValue => setSearchCountries(userInputValue); 
+  const handleFilterByRegion = (value) => setRegion(value)
+  const filteredCountries =  countries.filter(country => 
+     country.name.common.toLowerCase().includes(searchCountries.toLowerCase()));
 
   return (
     <>
       <Header />
       <main>
         <section className={styles.search}>
-          <SearchCountry onFilter={handleFilterCountries} />
+          <SearchCountry onSearch={handleSearchCountries} />
           <FilterCountry onFilterByRegion={handleFilterByRegion} />
         </section>
         <section className={styles.countriesContainer}>
-          <CountryList countries={filteredCountries} />
+          <CountryList countries={filteredCountries} region={region}/>
         </section>
       </main>
     </>

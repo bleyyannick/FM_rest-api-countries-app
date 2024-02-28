@@ -1,12 +1,11 @@
 /* eslint-disable react/prop-types */
 
-
 function FilterCountry({onFilterByRegion}) {
   return (
-    <select onClick={e => onFilterByRegion(e.target.value)}>
-        <option value='' >Filter by region</option>
+    <select onChange={e => onFilterByRegion(e.target.value)}>
+        <option value='All' >Filter by region</option>
         <option value='Africa' >Africa</option>
-        <option value='America' >America</option>
+        <option value='Americas' >America</option>
         <option value='Asia' >Asia</option>
         <option value='Europe' >Europe</option>
         <option value='Oceania' >Oceania</option>

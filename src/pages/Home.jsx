@@ -25,15 +25,20 @@ function Home() {
   const handleFilterCountries = userInputValue => setFilter(userInputValue); 
   const filteredCountries =  [...countries].filter(country => 
     country.name.common.toLowerCase().includes(filter.toLowerCase())
+    );
+  const handleFilterByRegion = (value) => 
+    setCountries(
+     filteredCountries.filter(country => country.region === value)
     ); 
   
+
   return (
     <>
       <Header />
       <main>
         <section className={styles.search}>
           <SearchCountry onFilter={handleFilterCountries} />
-          <FilterCountry />
+          <FilterCountry onFilterByRegion={handleFilterByRegion} />
         </section>
         <section className={styles.countriesContainer}>
           <CountryList countries={filteredCountries} />

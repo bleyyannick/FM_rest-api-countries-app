@@ -1,0 +1,27 @@
+
+.card {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .card > .cardFlag {
+      width: 100%;
+      object-fit: cover;
+      height: 45%; 
+  }
+  
+  .card > div {
+      padding: 1.3rem 1.2rem 2.5rem 1.2rem;
+  }
+  
+  .card > div h3 {
+      padding-bottom: 1rem;
+  }
+  
+  .card > div ul {
+      list-style-type: none;
+  }
+  
+  .card > div ul li {
+      padding-bottom: .1rem;
+  }

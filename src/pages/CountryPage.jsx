@@ -11,7 +11,7 @@ function CountryPage() {
     useEffect(() => {
         const fetchCountry = async () => {
             try {
-               const response = await fetch(`https://restcountries.com/v3.1/name/${name}`)
+               const response = await fetch(`https://restcountries.com/v3.1/name/${name}?fullText=true`)
                if(!response.ok) throw new Error('Something went wrong with the request')
                const data = await response.json();
                  setCountryInfo(data);
@@ -27,7 +27,6 @@ function CountryPage() {
           return nativeNameValues.map(nativeName => nativeName.official).join(',')
         };
       const getCapitals = capitals => capitals.map(capital => capital)?.join(','); 
-      console.log(countryInfo)
   return (
    <>
    <Header />

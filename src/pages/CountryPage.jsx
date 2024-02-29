@@ -30,13 +30,12 @@ function CountryPage() {
   return (
    <>
    <Header />
-   <div>
+   <section className={styles.backHome}>
       <Link to={`/`}>
         Back
       </Link>
-
-   </div>
-    <section className={styles.countryDetails}>
+   </section>
+   <section className={styles.countryDetails}>
     {countryInfo.map((country, key) =>
       <article className={styles.countryContainer} key={key}>
           <div className={styles.countryFlag}>

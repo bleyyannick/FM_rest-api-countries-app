@@ -35,5 +35,14 @@
     padding-bottom: .6rem;
 }
 
+.backHome {
+    padding: 0 3rem;
+    margin: 3rem 0;
+}
+
+.backHome :Link {
+    padding: .4rem 2.5rem;
+}
+
 
 

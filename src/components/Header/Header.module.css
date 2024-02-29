@@ -11,3 +11,14 @@
     border: none; 
     background: inherit;
 }
+
+
+@media only screen and (min-width: 330px) and (max-width: 700px)  {
+  .heading {
+    padding: 2em 1em;
+  }
+  .heading h1, .heading .btnSwitchTheme{
+     font-size: .7rem;
+  }
+  
+}

@@ -3,7 +3,7 @@ function Header() {
   return (
     <header className={styles.heading}>
         <h1>Where in the world?</h1>
-        <button className={styles.btnSwitchTheme}>Dark mode</button>
+        <button className={styles.btnSwitchTheme}>Dark Mode</button>
     </header>
   )
 }

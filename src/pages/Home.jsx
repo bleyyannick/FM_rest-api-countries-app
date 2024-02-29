@@ -9,6 +9,7 @@ function Home() {
   const [countries, setCountries] = useState([]);
   const [searchCountries, setSearchCountries] = useState('');
   const [region, setRegion] = useState('All');
+
     useEffect(() => {
      const fetchAllCountries = async () => {
          try {
@@ -24,7 +25,7 @@ function Home() {
     }, []); 
     
   const handleSearchCountries = userInputValue => setSearchCountries(userInputValue); 
-  const handleFilterByRegion = (value) => setRegion(value); 
+  const handleFilterByRegion = value => setRegion(value); 
   
   return (
     <>

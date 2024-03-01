@@ -6,3 +6,10 @@
     margin: 0; 
     font-family: "Nunito Sans", sans-serif;
 }
+
+
+
+.dark{
+        background-color: black;
+        color: white   
+}

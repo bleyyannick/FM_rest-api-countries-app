@@ -3,8 +3,6 @@ import { useParams, Link} from "react-router-dom";
 import styles from './CountryPage.module.css'
 import Header from "../components/Header/Header";
 
-
-
 function CountryPage() {
     const [countryInfo, setCountryInfo] = useState([])
     const { name } = useParams()

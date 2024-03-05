@@ -1,8 +1,11 @@
+import { useContext } from "react"
+import { ThemeContext } from "../../store/ThemeContextProvider"
 /* eslint-disable react/prop-types */
 
 function FilterCountry({onFilterByRegion}) {
+  const {theme} = useContext(ThemeContext)
   return (
-    <select onChange={e => onFilterByRegion(e.target.value)}>
+    <select className={theme} onChange={e => onFilterByRegion(e.target.value)}>
         <option value='All' >Filter by region</option>
         <option value='Africa' >Africa</option>
         <option value='Americas' >America</option>

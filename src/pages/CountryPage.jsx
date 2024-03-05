@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams, Link} from "react-router-dom";
-import styles from './CountryPage.module.css'
+import './CountryPage.css'
 import Header from "../components/Header/Header";
+import { ThemeContext } from "../store/ThemeContextProvider";
+import clsx from "clsx";
 
 function CountryPage() {
     const [countryInfo, setCountryInfo] = useState([])
+    const {theme} = useContext(ThemeContext)
     const { name } = useParams()
     useEffect(() => {
         const fetchCountry = async () => {
@@ -28,36 +31,36 @@ function CountryPage() {
   return (
    <>
    <Header />
-   <section className={styles.backHome}>
+   <section className={clsx(`backHome ${theme}`)}>
       <Link to={`/`}>
         Back
       </Link>
    </section>
-   <section className={styles.countryDetails}>
+   <section className={clsx(`countryDetails ${theme}`)}>
     {countryInfo.map((country, key) =>
-      <article className={styles.countryContainer} key={key}>
-          <div className={styles.countryFlag}>
+      <article className={`countryContainer`} key={key}>
+          <div className={`countryFlag`}>
               <img src={country.flags.png}  alt={country.flags.alt}  />
           </div>
-          <div className={styles.countryDescription}>
+          <div className={`countryDescription`}>
               <div>
                 <h2>{country.name.common}</h2>
               </div>
-              <div className={styles.countryTextDetails}>
-                <ul className={styles.countryFirstList}>
+              <div className={`countryTextDetails`}>
+                <ul className={`countryFirstList`}>
                   <li>Native Name: {getNativeName(country.name.nativeName)} </li>
                   <li>Population:{country.population} </li>
                   <li>Region: {country.region} </li>
                   <li>Sub Region: {country.subregion}</li>
                   <li>Capital: {getCapitals(country.capital)}</li>
                 </ul>
-                <ul className={styles.countrySecondList}> 
+                <ul className={`countrySecondList`}> 
                   <li>Top Level Domain: {country.tld[0]} </li>
                   <li>Currencies:{(Object.values(country.currencies)[0].name)} </li>
                   <li>Languages: {(Object.values(country.languages).map(languages => languages).join(','))} </li>
                 </ul>
               </div>
-              <div className={styles.countryBorders}>
+              <div className={`countryBorders`}>
                 <p>Border Countries: {country.borders?.map(border => border.toLowerCase()).join(',')}</p>
               </div>
           </div>

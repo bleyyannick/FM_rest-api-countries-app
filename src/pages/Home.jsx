@@ -32,7 +32,7 @@ function Home() {
   return (
     <>
       <Header />
-        <main>
+        <main className={theme}>
           <section className={clsx('search',theme)}>
             <SearchCountry onSearch={handleSearchCountries} />
             <FilterCountry onFilterByRegion={handleFilterByRegion} />

@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useContext, useState } from 'react';
 // eslint-disable-next-line no-unused-vars
-import styles from './SearchCountry.module.css'; 
 import { ThemeContext } from '../../store/ThemeContextProvider';
 
 function SearchCountry({ onSearch }) {

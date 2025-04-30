@@ -8,6 +8,10 @@ import './index.css'
 import Home from './pages/Home.jsx';
 import CountryPage from './pages/CountryPage.jsx'; 
 import ThemeContextProvider from './store/ThemeContextProvider.jsx';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+
+const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
   {
@@ -21,8 +25,10 @@ const router = createBrowserRouter([
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <ThemeContextProvider>
-      <RouterProvider router={router} />
-    </ThemeContextProvider>
+    <QueryClientProvider client={queryClient}>
+      <ThemeContextProvider>
+        <RouterProvider router={router} />
+      </ThemeContextProvider>
+    </QueryClientProvider>
   </React.StrictMode>,
 )

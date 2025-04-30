@@ -40,8 +40,9 @@
     margin: 3rem 0;
 }
 
-.backHome :Link {
+.backHome button {
     padding: .4rem 2.5rem;
+    background-color: inherit;
 }
 
 
